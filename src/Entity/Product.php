@@ -30,8 +30,7 @@ class Product
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity=Price::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
      */
     private $price;
 
@@ -74,12 +73,12 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?Price
+    public function getPrice(): int
     {
         return $this->price;
     }
 
-    public function setPrice(Price $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
 
