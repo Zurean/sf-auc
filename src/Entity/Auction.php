@@ -30,6 +30,46 @@ class Auction
      */
     private $bets;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $startPrice;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $minPrice;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $priceCollapseStep;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $priceCollapseInterval;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $minOutbid;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $startTime;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createTime;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $endTime;
+
     public function __construct()
     {
         $this->bets = new ArrayCollection();
@@ -78,6 +118,102 @@ class Auction
                 $bet->setAuction(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStartPrice(): ?int
+    {
+        return $this->startPrice;
+    }
+
+    public function setStartPrice(int $startPrice): self
+    {
+        $this->startPrice = $startPrice;
+
+        return $this;
+    }
+
+    public function getMinPrice(): ?int
+    {
+        return $this->minPrice;
+    }
+
+    public function setMinPrice(int $minPrice): self
+    {
+        $this->minPrice = $minPrice;
+
+        return $this;
+    }
+
+    public function getPriceCollapseStep(): ?int
+    {
+        return $this->priceCollapseStep;
+    }
+
+    public function setPriceCollapseStep(int $priceCollapseStep): self
+    {
+        $this->priceCollapseStep = $priceCollapseStep;
+
+        return $this;
+    }
+
+    public function getPriceCollapseInterval(): ?int
+    {
+        return $this->priceCollapseInterval;
+    }
+
+    public function setPriceCollapseInterval(int $priceCollapseInterval): self
+    {
+        $this->priceCollapseInterval = $priceCollapseInterval;
+
+        return $this;
+    }
+
+    public function getMinOutbid(): ?int
+    {
+        return $this->minOutbid;
+    }
+
+    public function setMinOutbid(int $minOutbid): self
+    {
+        $this->minOutbid = $minOutbid;
+
+        return $this;
+    }
+
+    public function getStartTime(): ?\DateTimeInterface
+    {
+        return $this->startTime;
+    }
+
+    public function setStartTime(\DateTimeInterface $startTime): self
+    {
+        $this->startTime = $startTime;
+
+        return $this;
+    }
+
+    public function getCreateTime(): ?\DateTimeInterface
+    {
+        return $this->createTime;
+    }
+
+    public function setCreateTime(\DateTimeInterface $createTime): self
+    {
+        $this->createTime = $createTime;
+
+        return $this;
+    }
+
+    public function getEndTime(): ?\DateTimeInterface
+    {
+        return $this->endTime;
+    }
+
+    public function setEndTime(?\DateTimeInterface $endTime): self
+    {
+        $this->endTime = $endTime;
 
         return $this;
     }
